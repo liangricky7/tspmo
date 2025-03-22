@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Paper
+  - Stack
+  - Shredder
   layers:
   - Default
   - TransparentFX
@@ -38,6 +41,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Text
+    uniqueID: 968229831
+    locked: 0
+  - name: Desk
+    uniqueID: 4183698875
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
