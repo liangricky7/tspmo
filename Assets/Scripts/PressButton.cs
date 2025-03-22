@@ -25,6 +25,9 @@ public class PressButton : MonoBehaviour
         {
             Debug.LogError("Transform isn't assigned!");
         }
+
+        Shredder = GameObject.Find("/Shredder").transform.position;
+        Center = GameObject.Find("/Workarea").transform.position;
     }
 
     public void CheckState()
@@ -33,12 +36,10 @@ public class PressButton : MonoBehaviour
         {
             case 0: //inital creation
                 MakePaper();
-                state = 1;
                 break;
 
             case 1: //shredding papers
                 ShredPaper();
-                state = 0;
                 break;
 
         }
@@ -46,10 +47,19 @@ public class PressButton : MonoBehaviour
 
     public void ShredPaper()
     {
-        GameObject temp = GameObject.Find("/Papers");
-        GameObject.Destroy(temp);
-        StartCoroutine(LerpPosition(temp, Shredder, 0.6f));
-        state = 0;
+        //check to prevent deleting null papers
+        if (GameObject.Find("/Papers") == null)
+        {
+            return;
+        }
+        GameObject temp = GameObject.Find("Papers");
+        Debug.Log(temp.name);
+        StartCoroutine(LerpPosition(temp, Shredder, 0.2f));
+        // while (Vector3.Distance(Shredder, temp.transform.position) > 0.001f)
+        // {
+        //     Debug.Log("Moving there!");
+        // }
+
 
     }
 
@@ -57,12 +67,15 @@ public class PressButton : MonoBehaviour
 
     public void MakePaper()
     {
-
+        //check to prevent doubling up papers
+        if (GameObject.Find("/Papers") != null)
+        {
+            return;
+        }
         GameObject temp = GameObject.Instantiate(prefab, item.position, Quaternion.identity) as GameObject;
         temp.name = "Papers";
         // temp.SetActive(false);
-        StartCoroutine(LerpPosition(temp, Center, 0.6f));
-        state = 1;
+        StartCoroutine(LerpPosition(temp, Center, 0.2f));
 
     }
 
@@ -79,6 +92,24 @@ public class PressButton : MonoBehaviour
             yield return null;
         }
         item.transform.position = targetPosition;
+
+        if (targetPosition == Shredder)
+        {
+            GameObject.Destroy(item);
+        }
+
+        if (state == 0)
+        {
+            state++;
+        }
+        else
+        {
+            state = 0;
+        }
+
+
     }
+
+
 
 }
