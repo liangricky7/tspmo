@@ -120,13 +120,13 @@ public class RandomTax : MonoBehaviour
         var rand = new Random();
         GameObject form1040Obj = Instantiate(form1040Prefab, new Vector3(0, 0, 0), Quaternion.identity);
         IndividualTax formContents = form1040Obj.GetComponent<IndividualTax>();
-        formContents.firstName = firstName[rand.Next(firstName.Length)];
-        formContents.lastName = lastName[rand.Next(lastName.Length)];
+        // formContents.firstName = firstName[rand.Next(firstName.Length)];
+        // formContents.lastName = lastName[rand.Next(lastName.Length)];
         formContents.address = address;
         formContents.state = stateAbbreviations[rand.Next(stateAbbreviations.Length)];
         formContents.city = stateCities[formContents.state][rand.Next(stateCities[formContents.state].Length)];
 
-        InformationManager.instance.setTrue1040(formContents.firstName, formContents.lastName, formContents.address, formContents.state, formContents.city, "the", new string[]{"the"});
+        // InformationManager.instance.setTrue1040(formContents.firstName, formContents.lastName, formContents.address, formContents.state, formContents.city, "the", new string[]{"the"});
     }
 
     void GenerateW2() {
