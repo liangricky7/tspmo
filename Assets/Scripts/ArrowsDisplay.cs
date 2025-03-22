@@ -19,11 +19,11 @@ public class ArrowsDisplay : MonoBehaviour
 
         //are there papers in play?
         GameObject stack = GameObject.Find("/Papers");
-
+        GameObject space = GameObject.Find("/Workarea");
         if (stack != null)
         {
             // Stack is in center position
-            if (stack.transform.position == Vector3.zero)
+            if (stack.transform.position == space.transform.position)
             {
                 if (transition)
                 {
