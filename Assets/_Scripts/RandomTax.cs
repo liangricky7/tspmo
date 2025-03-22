@@ -113,7 +113,7 @@ public class RandomTax : MonoBehaviour
         withheldMedicare = rand.Next(0, wages/10);
         net = wages - tax - withheldSocialSecurity - withheldMedicare;
 
-        Randomize1040();
+        RandomizeW2();
     }
 
     void Randomize1040() {
@@ -135,5 +135,21 @@ public class RandomTax : MonoBehaviour
         // withheldMedicare.ToString("N0") 
         // net.ToString("N0")
         ;
+    }
+    void RandomizeW2() {
+        var rand = new Random();
+        GameObject W2Obj = Instantiate(W2Prefab, new Vector3(0, 0, 0), Quaternion.identity);
+        W2 formContents = W2Obj.GetComponent<W2>();
+        formContents.fullEmployeeName = firstName[rand.Next(firstName.Length)] + " " + lastName[rand.Next(lastName.Length)];
+        formContents.employeeAddress = rand.Next(1000).ToString() + " " + streetName[rand.Next(streetName.Length)] + " " + streetType[rand.Next(streetType.Length)];
+        formContents.employeeSSN = String.Format("{0:000}-{0:00}-{0:0000}", rand.Next(1000), rand.Next(100), rand.Next(10000));
+        formContents.fullEmployerName = firstName[rand.Next(firstName.Length)] + " " + lastName[rand.Next(lastName.Length)];
+        formContents.employerAddress = rand.Next(1000).ToString() + " " + streetName[rand.Next(streetName.Length)] + " " + streetType[rand.Next(streetType.Length)];
+        formContents.employerSSN = String.Format("{0:000}-{0:00}-{0:0000}", rand.Next(1000), rand.Next(100), rand.Next(10000));
+        formContents.wages = wages;
+        formContents.fedTax = tax;
+        formContents.socialSecurity = withheldSocialSecurity;
+        formContents.withheldMedicare = withheldMedicare;
+        formContents.netWages = net;
     }
 }
