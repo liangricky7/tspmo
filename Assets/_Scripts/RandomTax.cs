@@ -113,7 +113,7 @@ public class RandomTax : MonoBehaviour
         withheldMedicare = rand.Next(0, wages/10);
         net = wages - tax - withheldSocialSecurity - withheldMedicare;
 
-        RandomizeW2();
+        GenerateW2();
     }
 
     void Randomize1040() {
@@ -125,18 +125,11 @@ public class RandomTax : MonoBehaviour
         formContents.address = address;
         formContents.state = stateAbbreviations[rand.Next(stateAbbreviations.Length)];
         formContents.city = stateCities[formContents.state][rand.Next(stateCities[formContents.state].Length)];
-        
-        // socialSecurity
-        // workAddress
-        // workSocialSecurity
-        // wages.ToString("N0")
-        // tax.ToString("N0")
-        // withheldSocialSecurity.ToString("N0")
-        // withheldMedicare.ToString("N0") 
-        // net.ToString("N0")
-        ;
+
+        InformationManager.instance.setTrue1040(formContents.firstName, formContents.lastName, formContents.address, formContents.state, formContents.city, "the", new string[]{"the"});
     }
-    void RandomizeW2() {
+
+    void GenerateW2() {
         var rand = new Random();
         GameObject W2Obj = Instantiate(W2Prefab, new Vector3(0, 0, 0), Quaternion.identity);
         W2 formContents = W2Obj.GetComponent<W2>();
