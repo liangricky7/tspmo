@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -94,7 +92,7 @@ public class SSNDB : MonoBehaviour
         { "WI", new string[] { "Milwaukee", "Madison", "Green Bay", "Kenosha", "Racine" } },
         { "WY", new string[] { "Cheyenne", "Casper", "Laramie", "Gillette", "Rock Springs" } }
     };
-    public int adultSetSize = 50;
+    public int adultSetSize = 40;
     public int childSetSize = 20;
     
     List<string> adultSSNs = new List<string>();
@@ -153,31 +151,5 @@ public class SSNDB : MonoBehaviour
         } else {
             return adultSet[adultSSNs[rand.Next(0, adultSSNs.Count)]];
         }
-    }
-
-    public Identity Search(string SSN) {
-        string formattedSSN = "";
-        if (isValidSSN(SSN)) {
-            string normalizedSSN = NormalizeSSN(SSN);
-            formattedSSN = $"{normalizedSSN.Substring(0, 3)}-{normalizedSSN.Substring(3, 2)}-{normalizedSSN.Substring(5, 4)}";
-        } else {
-            return null;
-        }
-        
-        if (adultSet.ContainsKey(formattedSSN)) {
-            return adultSet[formattedSSN];
-        }
-        if (childSet.ContainsKey(formattedSSN)) {
-            return childSet[formattedSSN];
-        }
-        return null;
-    }
-    
-    private string NormalizeSSN(string SSN) {
-        return Regex.Replace(SSN, @"[^\d]", "");
-    }
-    private bool isValidSSN(string SSN) {
-        string normalizedSSN = NormalizeSSN(SSN);
-        return normalizedSSN.Length == 9 && Regex.IsMatch(normalizedSSN, @"^\d{9}");
     }
 }

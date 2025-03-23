@@ -6,7 +6,6 @@ using UnityEngine;
 public class PressButton : MonoBehaviour
 {
     public GameObject currW2;
-    public GameObject curr1040;
     public Transform item;
     public Vector3 Center;
     public Vector3 Shredder;
@@ -36,13 +35,12 @@ public class PressButton : MonoBehaviour
         {
             case 0: //inital creation
                 MakePaper();
-                state++;
                 break;
 
             case 1: //shredding papers
                 ShredPaper();
-                state--;
                 break;
+
         }
     }
 
@@ -50,8 +48,6 @@ public class PressButton : MonoBehaviour
     {
         Debug.Log("called");
         StartCoroutine(LerpPosition(currW2, Shredder, 0.2f));
-        StartCoroutine(LerpPosition(curr1040, GameManager.instance.form1040Spawn.position + (Vector3.right * 10) , 0.2f));
-        GameManager.instance.EndFileSet();
         // while (Vector3.Distance(Shredder, temp.transform.position) > 0.001f)
         // {
         //     Debug.Log("Moving there!");
@@ -69,15 +65,7 @@ public class PressButton : MonoBehaviour
         currW2.transform.position = item.position;
         currW2.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         currW2.SetActive(true);
-
-        curr1040 = GameManager.instance.current1040;
-        curr1040.SetActive(true);
-        curr1040.transform.position = GameManager.instance.form1040Spawn.position;
-        curr1040.transform.position += Vector3.right * 10;
-        curr1040.SetActive(true);
-
         StartCoroutine(LerpPosition(currW2, Center, 0.2f));
-        StartCoroutine(LerpPosition(curr1040, GameManager.instance.form1040Spawn.position, 0.2f));
     }
 
     IEnumerator LerpPosition(GameObject item, Vector3 targetPosition, float duration)
@@ -93,10 +81,10 @@ public class PressButton : MonoBehaviour
         }
         item.transform.position = targetPosition;
 
-        // if (targetPosition == Shredder)
-        // {
-        //     GameObject.Destroy(item);
-        // }
+        if (targetPosition == Shredder)
+        {
+            GameObject.Destroy(item);
+        }
 
         if (state == 0)
         {
@@ -106,6 +94,8 @@ public class PressButton : MonoBehaviour
         {
             state = 0;
         }
+
+
     }
 
 
