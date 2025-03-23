@@ -110,7 +110,8 @@ public class FileSet : MonoBehaviour
     #endregion
     bool hasSpouse;
     bool filingJointly;
-    void Start()
+
+    public void newFileSet()
     {
         System.Random rand = new System.Random();
         hasSpouse = false;
