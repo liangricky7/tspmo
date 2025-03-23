@@ -18,7 +18,7 @@ public class W2 : MonoBehaviour
     public int socialSecurity;
     public int withheldMedicare;
     public int netWages;
-    
+
 
     [Space(10)]
     [Header("Text Connections")]
