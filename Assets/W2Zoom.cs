@@ -21,13 +21,13 @@ public class W2Zoom : MonoBehaviour
         form = this.gameObject;
         defaultScale = form.transform.localScale;
         defaultPos = form.transform.position;
-        if (form == null)
-        {
-            Debug.Log("FUCK");
-            Debug.Log("FUCK");
-        }
+        // if (form == null)
+        // {
+        //     Debug.Log("FUCK");
+        //     Debug.Log("FUCK");
+        // }
 
-        Debug.Log("Pos = " + defaultPos);
+        // Debug.Log("Pos = " + defaultPos);
 
         // GameObject temp = GameObject.Find("/1040/Shadow");
         // fade = temp.GetComponent<SpriteRenderer>();

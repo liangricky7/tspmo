@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         FileSet.instance.newFileSet();
         current1040 = FileSet.instance.form1040Obj;
         currentW2 = FileSet.instance.formW2Obj;
+        Debug.Log($"Errors are: {string.Join(", ", FileSet.instance.form1040Errors)}");
     }
 
     public void EndFileSet()
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         FileSet.instance.newFileSet();
         current1040 = FileSet.instance.form1040Obj;
         currentW2 = FileSet.instance.formW2Obj;
-        Debug.Log($"HashSet Contents: {string.Join(", ", FileSet.instance.form1040Errors)}");
+        Debug.Log($"Errors are: {string.Join(", ", FileSet.instance.form1040Errors)}");
         shredder.GetComponent<ObjectShake>().TriggerShake();
     }
 
