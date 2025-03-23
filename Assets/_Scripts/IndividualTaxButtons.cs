@@ -18,26 +18,30 @@ public class IndividualTaxButtons : MonoBehaviour
 
     public void Information(int i) {
         if (i == 0) { // Full Name is Wrong
-            
+            GameManager.instance.claimedErrors.Add("Full Name");
         } else if (i == 1) { // SSN is wrong
 
         } else if (i == 2) { // Spouse Name is wrong
+            GameManager.instance.claimedErrors.Add("Spouse Name");
 
         } else if (i == 3) { // Spouse SSN is wrong
 
         } else if (i == 4) { // Address is wrong
-
+            GameManager.instance.claimedErrors.Add("Address");
         }
     }
 
     public void FilingStatus() {
         //Claim filing status is faulty
+        GameManager.instance.claimedErrors.Add("Filing Status");
     }
 
     public void Dependent(int i) {
         // ith dependent is faulty
+        GameManager.instance.claimedErrors.Add("Department " + i);
     }
     public void Income(int i) {
         //claim one of the incomes is wrong
+        GameManager.instance.claimedErrors.Add("Income " + i  + " Altered");
     }
 }

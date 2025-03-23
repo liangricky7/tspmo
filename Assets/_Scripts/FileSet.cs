@@ -15,6 +15,8 @@ public class FileSet : MonoBehaviour
     W2 formW2;
     public GameObject form1040Obj;
     public GameObject formW2Obj;
+    public HashSet<string> form1040Errors;
+    public HashSet<string> formW2Errors;
     #endregion
 
     #region fields
@@ -119,6 +121,8 @@ public class FileSet : MonoBehaviour
         } else {
             instance = this;
         }
+        form1040Errors = new HashSet<string>();
+        formW2Errors = new HashSet<string>();
     }
 
     public void newFileSet()
@@ -224,15 +228,19 @@ public class FileSet : MonoBehaviour
 
         if (90 >= rand.Next(0, 101)) { //random name
             form1040.fullName = firstName[rand.Next(firstName.Length)] + " " + lastName[rand.Next(lastName.Length)];
+            form1040Errors.Add("Full Name");
         } 
-        if (90 >= rand.Next(0, 101)) { //random name
-            form1040.SSN = $"{rand.Next(100, 1000)}-{rand.Next(10, 100)}-{rand.Next(1000, 10000)}";
+
+        if (90 >= rand.Next(0, 101)) { //random address
+            form1040.address = rand.Next(120, 9658).ToString() + " " + streetName[rand.Next(streetName.Length)] + " " + streetType[rand.Next(streetType.Length)];;
+            form1040Errors.Add("Address");
         } 
 
         if (filingJointly) {
-            form1040.spouseFullName = spouseIdentity.name;
-            // add chaos to the ssn
-            form1040.spouseSSN = rand.Next(0, 101) > 90 ? $"{rand.Next(100, 1000)}-{rand.Next(10, 100)}-{rand.Next(1000, 10000)}" : spouseIdentity.SSN;
+            // add chaos to the name
+            form1040.spouseFullName = rand.Next(0, 101) > 90 ? firstName[rand.Next(firstName.Length)] + " " + lastName[rand.Next(lastName.Length)] : spouseIdentity.name;
+            form1040Errors.Add("Spouse Name");
+            form1040.spouseSSN = spouseIdentity.SSN;
             // Debug.Log("True Spouse SSN is " + spouseIdentity.SSN);
         }
         // bubble filing status
@@ -248,10 +256,11 @@ public class FileSet : MonoBehaviour
         } else {
             form1040.filingStatus = "Single";
         }
+        if (!filingStatus.Equals(form1040.filingStatus)) form1040Errors.Add("Filing Status");
         // Debug.Log("True filing status is " + filingStatus);
 
         form1040.dependents = dependents;
-
+        int i = 0;
         foreach (Dependent dependent in form1040.dependents) {
             if (dependent == null) continue;
             if (rand.Next(0, 101) > 80) { // manipulate existing data
@@ -261,7 +270,9 @@ public class FileSet : MonoBehaviour
                 } else {
                     dependent.childTax = !dependent.childTax;
                 }
+                form1040Errors.Add("Dependent " + i);
             }
+            i++;
         }
 
         bool IncomeAltered = false; //makes sure only one of these get changed so theres no fucky wucky business
@@ -272,10 +283,12 @@ public class FileSet : MonoBehaviour
         form1040.other = otherIncome;
         form1040.summedIncome = (!IncomeAltered && 86 < rand.Next(0, 101)) ? totalIncome + rand.Next(-219, 1230): totalIncome;
         IncomeAltered = (!IncomeAltered && form1040.summedIncome == totalIncome) ? false : true;
+        if (IncomeAltered) form1040Errors.Add("Income 1 Altered");
+        IncomeAltered = false;
         form1040.deductions = (!IncomeAltered && 86 < rand.Next(0, 101)) ? standardDeductionAmt + rand.Next(12020, 25030) : standardDeductionAmt;
         IncomeAltered = (!IncomeAltered && form1040.deductions == standardDeductionAmt) ? false : true;
         form1040.taxableIncome = (!IncomeAltered && 86 < rand.Next(0, 101)) ? taxableIncome + rand.Next(-235, 338): taxableIncome;
-        
+        if (IncomeAltered) form1040Errors.Add("Income 23 Altered");
         form1040Obj.SetActive(false);
     }
 
@@ -291,8 +304,8 @@ public class FileSet : MonoBehaviour
         formW2.employerSSN = employerIdentity.SSN;
         formW2.employerAddress = employerIdentity.address;
 
-        bool numbersAltered = false; //makes sure only one of these get changed so theres no fucky wucky business
-        formW2.wages = (!numbersAltered && 86 < rand.Next(0, 101)) ? wages : + rand.Next(-5312, 4129);
+        // bool numbersAltered = false; //makes sure only one of these get changed so theres no fucky wucky business
+        formW2.wages =  wages; // (!numbersAltered && 86 < rand.Next(0, 101)) ?: + rand.Next(-5312, 4129)
         // numbersAltered = (!numbersAltered && formW2.wages == wages) ? false : true;
         formW2.fedTax = fedTax;
         formW2.socialSecurity = socSec;

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject current1040;
     public bool inHighlightMode;
     public Transform form1040Spawn;
+    public HashSet<string> claimedErrors;
 
     void Awake()
     {
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
         inHighlightMode = true;
+        claimedErrors = new HashSet<string>();
     }
 
     void Start()
@@ -26,11 +28,17 @@ public class GameManager : MonoBehaviour
         FileSet.instance.newFileSet();
         current1040 = FileSet.instance.form1040Obj;
         currentW2 = FileSet.instance.formW2Obj;
+        Debug.Log($"HashSet Contents: {string.Join(", ", FileSet.instance.formW2Errors)}");
     }
 
     public void EndFileSet()
     {  
-        
+        if (claimedErrors.SetEquals(FileSet.instance.form1040Errors)) {
+            //idk somethign good
+            Debug.Log("good");
+        } else {
+            Debug.Log("bad");
+        }
 
 
         FileSet.instance.newFileSet();
