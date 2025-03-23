@@ -18,7 +18,7 @@ public class W2Zoom : MonoBehaviour
         inPan = false;
         oneTime = true;
         centered = false;
-        form = this.GameObject;
+        form = gameObject;
         defaultScale = form.transform.localScale;
         defaultPos = form.transform.position;
         if (form == null)
