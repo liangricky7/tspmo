@@ -49,11 +49,7 @@ public class GameManager : MonoBehaviour
         FileSet.instance.newFileSet();
         current1040 = FileSet.instance.form1040Obj;
         currentW2 = FileSet.instance.formW2Obj;
-<<<<<<< Updated upstream
         Debug.Log($"HashSet Contents: {string.Join(", ", FileSet.instance.form1040Errors)}");
-=======
         shredder.GetComponent<ObjectShake>().TriggerShake();
-
->>>>>>> Stashed changes
     }
 }
