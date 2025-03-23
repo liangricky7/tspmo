@@ -10,7 +10,7 @@ public class W2Zoom : MonoBehaviour
     private Vector3 defaultScale;
     private Vector3 defaultPos;
     private bool inPan, oneTime, centered;
-
+    private float duration = 0.2f;
     private SpriteRenderer fade;
 
     void Start()
@@ -18,13 +18,17 @@ public class W2Zoom : MonoBehaviour
         inPan = false;
         oneTime = true;
         centered = false;
-        form = gameObject;
+        form = this.gameObject;
         defaultScale = form.transform.localScale;
         defaultPos = form.transform.position;
         if (form == null)
         {
             Debug.Log("FUCK");
+            Debug.Log("FUCK");
         }
+
+        Debug.Log("Pos = " + defaultPos);
+
         // GameObject temp = GameObject.Find("/1040/Shadow");
         // fade = temp.GetComponent<SpriteRenderer>();
     }
@@ -34,12 +38,15 @@ public class W2Zoom : MonoBehaviour
     void OnMouseEnter()
     {
         //If your mouse hovers over the GameObject with the script attached, output this message
-        Vector3 pan = form.transform.localScale + new Vector3(1f, 1f, 1f);
+        Vector3 pan = form.transform.localScale + new Vector3(.1f, .1f, 0f);
 
         if (!inPan && oneTime)
         {
             if (!centered)
-                StartCoroutine(LerpFocus(form, form.transform.position, pan, 0.05f, 0f));
+            {
+                StartCoroutine(LerpFocus(form, form.transform.position, pan, duration, 0f));
+                defaultPos = form.transform.position;
+            }
         }
 
     }
@@ -47,11 +54,13 @@ public class W2Zoom : MonoBehaviour
     void OnMouseExit()
     {
         //The mouse is no longer hovering over the GameObject so output this message each frame
-        Vector3 pan = form.transform.localScale - new Vector3(1f, 1f, 1f);
+        Vector3 pan = form.transform.localScale - new Vector3(.1f, .1f, 0f);
         if (inPan && !oneTime)
         {
             if (!centered)
-                StartCoroutine(LerpFocus(form, form.transform.position, pan, 0.05f, 0f));
+            {
+                StartCoroutine(LerpFocus(form, form.transform.position, pan, duration, 0f));
+            }
         }
 
     }
@@ -61,14 +70,14 @@ public class W2Zoom : MonoBehaviour
         if (form.transform.position != Vector3.zero)
         {
             centered = true;
-            Vector3 pan = new Vector3(6f, 10f, 1f);
-            StartCoroutine(LerpFocus(form, Vector3.zero, pan, 0.05f, 0.8f));
+            Vector3 pan = new Vector3(1f, 1f, 1f);
+            StartCoroutine(LerpFocus(form, Vector3.zero, pan, duration, 0.8f));
         }
         if (form.transform.position == Vector3.zero)
         {
             centered = false;
-            Vector3 pan = new Vector3(5f, 8f, 1f);
-            StartCoroutine(LerpFocus(form, defaultPos, pan, 0.05f, 0f));
+            Vector3 pan = new Vector3(0.5f, 0.5f, 0.5f);
+            StartCoroutine(LerpFocus(form, defaultPos, defaultScale, duration, 0f));
         }
     }
 
