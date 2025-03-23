@@ -13,6 +13,7 @@ public class RandomTax : MonoBehaviour
     public static string[] firstName = {"Aaron", "Bob", "Christian", "Donald", "Earl", "Felicia", "Gerald", "Harry", "Isadore", "Johnny", "Kim", "Larry", "Monique", "Nate", "Oliver", "Perry", "Quinn", "Rachel", "Sally", "Toddy", "Ursula", "Veronica", "Wally", "Xavier", "Yelena", "Zoe"};
     public static string[] lastName = {"Anderson", "Barnes", "Cason", "Dewey", "Eagan", "Frazier", "Grimwood", "Howard", "Ida", "Johnson", "Kerkman", "Libberton", "Marlow", "Narcross", "Oxford", "Pearson", "Questead", "Reeves", "Southerwood", "Taterfield", "Uren", "Vousdon", "Waddesworth", "Xanthopoulos", "Yarsley", "Zealand"};
     public static string name;
+    public static string employerName;
     public static int age;
     public static bool married;
     public static string socialSecurity;
@@ -20,6 +21,7 @@ public class RandomTax : MonoBehaviour
     
     //Address
     public static string address;
+    public static string workAddress;
     public static string[] streetName = {"Amiens", "Blue", "Chester", "Dutch", "East", "Greenwood", "Highland", "Inverted", "James", "Springfield", "Lake", "Main", "North", "Oak", "Peppermint", "Quarter", "Roundhouse", "South", "Town", "Underside", "Plank", "Village", "West", "Martin Luther King", "Yellow", "Daniel Donze", "Andrew Webb", "John Luke Denny", "Zigzag"};
     public static string[] streetType = {"Alley", "Avenue", "Street", "Court", "Drive", "Lane", "Plaza", "Road", "Way"};
 
@@ -92,10 +94,26 @@ public class RandomTax : MonoBehaviour
     public static int withheldMedicare;
     public static int net;
 
+    //Outputs
+    public static string nameOutput;
+    public static string employerNameOutput;
+    public static int ageOutput;
+    public static string addressOutput;
+    public static string workAddressOutput;
+    public static string socialSecurityOutput;
+    public static string workSocialSecurityOutput;
+    public static int wagesOutput;
+    public static int taxOutput;
+    public static int withheldSSOutput;
+    public static int withheldMedicareOutput;
+    public static int netOutput;
+
     //Correct or Incorrect
     public static bool nameCorrect = true;
+    public static bool employerNameCorrect = true;
     public static bool ageCorrect = true;
     public static bool addressCorrect = true;
+    public static bool workAddressCorrect = true;
     public static bool socialSecurityCorrect = true;
     public static bool workSocialSecurityCorrect = true;
     public static bool wagesCorrect = true;
@@ -110,6 +128,7 @@ public class RandomTax : MonoBehaviour
     void Start()
     {
         Randomization();
+        MessUp();
         GenerateW2();
     }
 
@@ -122,12 +141,14 @@ public class RandomTax : MonoBehaviour
     public static string[] Randomization() {
         var rand = new Random(Guid.NewGuid().GetHashCode());
         name = (firstName[rand.Next(firstName.Length)]) + " " + (lastName[rand.Next(lastName.Length)]);
+        employerName = (firstName[rand.Next(firstName.Length)]) + " " + (lastName[rand.Next(lastName.Length)]);
         age = rand.Next(18, 76);
         socialSecurity = String.Format("{0:000}-{1:00}-{2:0000}", rand.Next(1000), rand.Next(100), rand.Next(10000));
         workSocialSecurity = String.Format("{0:000}-{1:00}-{2:0000}", rand.Next(1000), rand.Next(100), rand.Next(10000));
 
         address = rand.Next(1000).ToString() + " " + streetName[rand.Next(streetName.Length)] + " " + streetType[rand.Next(streetType.Length)];
-        
+        workAddress = rand.Next(1000).ToString() + " " + streetName[rand.Next(streetName.Length)] + " " + streetType[rand.Next(streetType.Length)];
+
         if(rand.Next(2) == 0) {
             married = false;
         }
@@ -141,7 +162,7 @@ public class RandomTax : MonoBehaviour
         withheldMedicare = rand.Next(0, wages/10);
         net = wages - tax - withheldSocialSecurity - withheldMedicare;
 
-        string[] dataSet = {name, age.ToString(), address, socialSecurity, workSocialSecurity, address, married.ToString(), wages.ToString(), tax.ToString(), withheldSocialSecurity.ToString(), withheldMedicare.ToString(), net.ToString()};
+        string[] dataSet = {name, age.ToString(), address, socialSecurity, workSocialSecurity, married.ToString(), wages.ToString("N0"), tax.ToString("N0"), withheldSocialSecurity.ToString("N0"), withheldMedicare.ToString("N0"), net.ToString("N0")};
         return dataSet;
     }
 
@@ -163,44 +184,58 @@ public class RandomTax : MonoBehaviour
         var rand = new Random();
         GameObject W2Obj = Instantiate(W2Prefab, new Vector3(0, 0, 0), Quaternion.identity);
         W2 formContents = W2Obj.GetComponent<W2>();
-        formContents.fullEmployeeName = name;
-        formContents.employeeAddress = address;
-        formContents.employeeSSN = socialSecurity;
-        formContents.fullEmployerName = firstName[rand.Next(firstName.Length)] + " " + lastName[rand.Next(lastName.Length)];
-        formContents.employerAddress = rand.Next(1000).ToString() + " " + streetName[rand.Next(streetName.Length)] + " " + streetType[rand.Next(streetType.Length)];
-        formContents.employerSSN = workSocialSecurity;
-        formContents.wages = wages;
-        formContents.fedTax = tax;
-        formContents.socialSecurity = withheldSocialSecurity;
-        formContents.withheldMedicare = withheldMedicare;
-        formContents.netWages = net;
+        formContents.fullEmployeeName = nameOutput;
+        formContents.employeeAddress = addressOutput;
+        formContents.employeeSSN = socialSecurityOutput;
+        formContents.fullEmployerName = employerName;
+        formContents.employerAddress = workAddress;
+        formContents.employerSSN = workSocialSecurityOutput;
+        formContents.wages = wagesOutput;
+        formContents.fedTax = taxOutput;
+        formContents.socialSecurity = withheldSSOutput;
+        formContents.withheldMedicare = withheldMedicareOutput;
+        formContents.netWages = netOutput;
     }
 
     void MessUp() {
         var rand = new Random();
 
-        string nameOutput = name;
+        nameOutput = name;
         if(rand.Next(2) == 0) {
             nameCorrect = false;
             nameOutput = nameOutput.Replace(nameOutput[rand.Next(0, nameOutput.Length)].ToString(), "");
         }
         Debug.Log(("Name: " + nameOutput + " (" + nameCorrect + ")"));
 
-        int ageOutput = age;
+        employerNameOutput = employerName;
+        if(rand.Next(2) == 0) {
+            employerNameCorrect = false;
+            employerNameOutput = employerNameOutput.Replace(employerNameOutput[rand.Next(0, employerNameOutput.Length)].ToString(), "");
+        }
+        Debug.Log(("Employer Name: " + employerNameOutput + " (" + employerNameCorrect + ")"));
+
+        ageOutput = age;
         if(rand.Next(2) == 0) {
             ageCorrect = false;
             ageOutput = ageOutput + rand.Next(-5, 5);
         }
         Debug.Log(("Age: " + ageOutput + " (" + ageCorrect + ")"));
 
-        string addressOutput = address;
+        addressOutput = address;
         if(rand.Next(2) == 0) {
             addressCorrect = false;
             addressOutput = addressOutput.Replace(addressOutput[rand.Next(0, addressOutput.Length)].ToString(), "");
         }
         Debug.Log(("Address: " + addressOutput + " (" + addressCorrect + ")"));
 
-        string socialSecurityOutput = socialSecurity;
+        workAddressOutput = workAddress;
+        if(rand.Next(2) == 0) {
+            workAddressCorrect = false;
+            workAddressOutput = workAddressOutput.Replace(workAddressOutput[rand.Next(0, workAddressOutput.Length)].ToString(), "");
+        }
+        Debug.Log(("Address: " + workAddressOutput + " (" + workAddressCorrect + ")"));
+
+        socialSecurityOutput = socialSecurity;
         if(rand.Next(2) == 0) {
             socialSecurityCorrect = false;
             while(socialSecurityOutput == socialSecurity) {
@@ -209,7 +244,7 @@ public class RandomTax : MonoBehaviour
         }
         Debug.Log("Social Security: " + socialSecurityOutput + " (" + socialSecurityCorrect + ")");
 
-        string workSocialSecurityOutput = workSocialSecurity;
+        workSocialSecurityOutput = workSocialSecurity;
         if(rand.Next(2) == 0) {
             workSocialSecurityCorrect = false;
             while (workSocialSecurityOutput == workSocialSecurity) {
@@ -218,7 +253,7 @@ public class RandomTax : MonoBehaviour
         }
         Debug.Log("Work Social Security: " + workSocialSecurityOutput + " (" + workSocialSecurityCorrect + ")");
 
-        int wagesOutput = wages;
+        wagesOutput = wages;
         if(rand.Next(2) == 0) {
             wagesCorrect = false;
             while(wagesOutput == wages) {
@@ -227,7 +262,7 @@ public class RandomTax : MonoBehaviour
         }
         Debug.Log(("Wages: " + wagesOutput + " (" + wagesCorrect + ")"));
 
-        int taxOutput = tax;
+        taxOutput = tax;
         if(rand.Next(2) == 0) {
             taxCorrect = false;
             while(taxOutput == tax) {
@@ -236,7 +271,7 @@ public class RandomTax : MonoBehaviour
         }
         Debug.Log(("Taxes: " + taxOutput + " (" + taxCorrect + ")"));
 
-        int withheldSSOutput = withheldSocialSecurity;
+        withheldSSOutput = withheldSocialSecurity;
         if(rand.Next(2) == 0) {
             withheldSSCorrect = false;
             while(withheldSSOutput == withheldSocialSecurity) {
@@ -245,7 +280,7 @@ public class RandomTax : MonoBehaviour
         }
         Debug.Log(("Withheld Social Security: " + withheldSSOutput + " (" + withheldSSCorrect + ")"));
 
-        int withheldMedicareOutput = withheldMedicare;
+        withheldMedicareOutput = withheldMedicare;
         if(rand.Next(2) == 0) {
             withheldMedicareCorrect = false;
             while(withheldMedicareOutput == withheldMedicare) {
@@ -254,7 +289,7 @@ public class RandomTax : MonoBehaviour
         }
         Debug.Log(("Withheld Medicare: " + withheldMedicareOutput + " (" + withheldMedicareCorrect + ")"));
 
-        int netOutput = net;
+        netOutput = net;
         netOutput = wagesOutput - taxOutput - withheldSSOutput - withheldMedicareOutput;
         if(netOutput != net) {
             netCorrect = false;
