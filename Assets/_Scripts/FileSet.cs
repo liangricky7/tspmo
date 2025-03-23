@@ -2,17 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class FileSet : MonoBehaviour
 {
+    public static FileSet instance;
     #region Prefabs and Objects
     public GameObject form1040Prefab;
     public GameObject formW2Prefab;
     IndividualTax form1040;
     W2 formW2;
-    GameObject form1040Obj;
-    GameObject formW2Obj;
+    public GameObject form1040Obj;
+    public GameObject formW2Obj;
     #endregion
 
     #region fields
@@ -110,8 +112,19 @@ public class FileSet : MonoBehaviour
     bool hasSpouse;
     bool filingJointly;
 
+    void Awake()
+    {
+        if (instance != null && instance != this) {
+            Destroy(this);
+        } else {
+            instance = this;
+        }
+    }
+
     public void newFileSet()
     {
+        Destroy(form1040Obj);
+        Destroy(formW2Obj);
         System.Random rand = new System.Random();
         hasSpouse = false;
         filingJointly = false;
@@ -200,7 +213,7 @@ public class FileSet : MonoBehaviour
 
     void Generate1040() {
         System.Random rand = new System.Random();
-        GameObject form1040Obj = Instantiate(form1040Prefab, new Vector3(-3, 0, 0), Quaternion.identity);
+        GameObject form1040Obj = Instantiate(form1040Prefab, new Vector3(0, 0, 0), Quaternion.identity);
         form1040 = form1040Obj.GetComponent<IndividualTax>();
         // true data
         form1040.fullName = selfIdentity.name;
@@ -220,7 +233,7 @@ public class FileSet : MonoBehaviour
             form1040.spouseFullName = spouseIdentity.name;
             // add chaos to the ssn
             form1040.spouseSSN = rand.Next(0, 101) > 90 ? $"{rand.Next(100, 1000)}-{rand.Next(10, 100)}-{rand.Next(1000, 10000)}" : spouseIdentity.SSN;
-            Debug.Log("True Spouse SSN is " + spouseIdentity.SSN);
+            // Debug.Log("True Spouse SSN is " + spouseIdentity.SSN);
         }
         // bubble filing status
         if (filingJointly && rand.Next(0, 101) > 90) {
@@ -235,14 +248,7 @@ public class FileSet : MonoBehaviour
         } else {
             form1040.filingStatus = "Single";
         }
-        Debug.Log("True filing status is " + filingStatus);
-
-
-        if (hasSpouse) {
-            //standard deduction
-        } else if (hasSpouse && 90 >= rand.Next(0, 101)) { // slide through an error
-
-        }
+        // Debug.Log("True filing status is " + filingStatus);
 
         form1040.dependents = dependents;
 
@@ -269,11 +275,13 @@ public class FileSet : MonoBehaviour
         form1040.deductions = (!IncomeAltered && 86 < rand.Next(0, 101)) ? standardDeductionAmt + rand.Next(12020, 25030) : standardDeductionAmt;
         IncomeAltered = (!IncomeAltered && form1040.deductions == standardDeductionAmt) ? false : true;
         form1040.taxableIncome = (!IncomeAltered && 86 < rand.Next(0, 101)) ? taxableIncome + rand.Next(-235, 338): taxableIncome;
+        
+        form1040Obj.SetActive(false);
     }
 
     void GenerateW2() {
         System.Random rand = new System.Random();
-        formW2Obj = Instantiate(formW2Prefab, new Vector3(3, 0, 0), Quaternion.identity);
+        formW2Obj = Instantiate(formW2Prefab, new Vector3(0, 0, 0), Quaternion.identity);
         formW2 = formW2Obj.GetComponent<W2>();
         
         formW2.fullEmployeeName = selfIdentity.name;
@@ -290,5 +298,6 @@ public class FileSet : MonoBehaviour
         formW2.socialSecurity = socSec;
         formW2.withheldMedicare = withMed;
         formW2.netWages = netWages;
+        formW2Obj.SetActive(false);
     }
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class PressButton : MonoBehaviour
 {
-
-    public GameObject prefab;
+    public GameObject currW2;
     public Transform item;
     public Vector3 Center;
     public Vector3 Shredder;
@@ -16,10 +15,10 @@ public class PressButton : MonoBehaviour
 
     void Start()
     {
-        if (prefab == null)
-        {
-            Debug.LogError("Prefab isn't assigned!");
-        }
+        // if (prefab == null)
+        // {
+        //     Debug.LogError("Prefab isn't assigned!");
+        // }
 
         if (item == null)
         {
@@ -47,23 +46,13 @@ public class PressButton : MonoBehaviour
 
     public void ShredPaper()
     {
-        //check to prevent deleting null papers
-        if (GameObject.Find("/Papers") == null)
-        {
-            return;
-        }
-        GameObject temp = GameObject.Find("Papers");
-        Debug.Log(temp.name);
-        StartCoroutine(LerpPosition(temp, Shredder, 0.2f));
+        Debug.Log("called");
+        StartCoroutine(LerpPosition(currW2, Shredder, 0.2f));
         // while (Vector3.Distance(Shredder, temp.transform.position) > 0.001f)
         // {
         //     Debug.Log("Moving there!");
         // }
-
-
     }
-
-
 
     public void MakePaper()
     {
@@ -72,13 +61,12 @@ public class PressButton : MonoBehaviour
         {
             return;
         }
-        GameObject temp = GameObject.Instantiate(prefab, item.position, Quaternion.identity) as GameObject;
-        temp.name = "Papers";
-        // temp.SetActive(false);
-        StartCoroutine(LerpPosition(temp, Center, 0.2f));
-
+        currW2 = GameManager.instance.currentW2;
+        currW2.transform.position = item.position;
+        currW2.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        currW2.SetActive(true);
+        StartCoroutine(LerpPosition(currW2, Center, 0.2f));
     }
-
 
     IEnumerator LerpPosition(GameObject item, Vector3 targetPosition, float duration)
     {
