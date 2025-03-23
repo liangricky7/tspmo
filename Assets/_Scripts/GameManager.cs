@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,5 +44,19 @@ public class GameManager : MonoBehaviour
         current1040 = FileSet.instance.form1040Obj;
         currentW2 = FileSet.instance.formW2Obj;
         Debug.Log($"HashSet Contents: {string.Join(", ", FileSet.instance.form1040Errors)}");
+    }
+
+    void win()
+    {
+
+        SceneManager.LoadSceneAsync("Victory");
+
+    }
+
+    void lose()
+    {
+
+        SceneManager.LoadSceneAsync("GameOver");
+
     }
 }
