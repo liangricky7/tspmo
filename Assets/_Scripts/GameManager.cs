@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject currentW2;
     public GameObject current1040;
+    public bool inHighlightMode;
+    public Transform form1040Spawn;
 
     void Awake()
     {
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
         } else {
             instance = this;
         }
+        inHighlightMode = true;
     }
 
     void Start()
@@ -24,8 +27,14 @@ public class GameManager : MonoBehaviour
         current1040 = FileSet.instance.form1040Obj;
         currentW2 = FileSet.instance.formW2Obj;
     }
+
     public void EndFileSet()
-    {
+    {  
+        
+
+
         FileSet.instance.newFileSet();
+        current1040 = FileSet.instance.form1040Obj;
+        currentW2 = FileSet.instance.formW2Obj;
     }
 }
