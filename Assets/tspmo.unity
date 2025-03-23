@@ -1206,6 +1206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   searchBar: {fileID: 1385461863}
   searchToggle: {fileID: 515229796}
+  input: {fileID: 0}
   search: 
 --- !u!1 &527995750
 GameObject:
@@ -2853,6 +2854,7 @@ GameObject:
   - component: {fileID: 1385461867}
   - component: {fileID: 1385461866}
   - component: {fileID: 1385461865}
+  - component: {fileID: 1385461868}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -2942,7 +2944,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1385461868}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -3017,6 +3031,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385461863}
   m_CullTransparentMesh: 1
+--- !u!114 &1385461868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385461863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebfbeb64b339a3d4f8165ad1026db0b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchBar: {fileID: 0}
+  searchToggle: {fileID: 0}
+  input: {fileID: 0}
+  search: 
 --- !u!1 &1417055700
 GameObject:
   m_ObjectHideFlags: 0
@@ -3542,6 +3572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   searchBar: {fileID: 0}
   searchToggle: {fileID: 0}
+  input: {fileID: 0}
   search: 
 --- !u!1 &1739764693
 GameObject:

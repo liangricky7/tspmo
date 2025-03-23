@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 5832952554084802538}
   - component: {fileID: 4755789517423987407}
   - component: {fileID: 383306023164407357}
-  - component: {fileID: 2606291559425613608}
+  - component: {fileID: 7109132118155858268}
   m_Layer: 0
   m_Name: DependentTwoButton
   m_TagString: Untagged
@@ -630,8 +630,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f4c027756354fb18c31f646463d4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 2606291559425613608}
---- !u!114 &2606291559425613608
+  button: {fileID: 0}
+--- !u!114 &7109132118155858268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -652,10 +652,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.39215687}
-    m_PressedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
-    m_SelectedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -671,25 +671,13 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2213547113007708605}
+  m_TargetGraphic: {fileID: 4755789517423987407}
   toggleTransition: 1
   graphic: {fileID: 0}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 383306023164407357}
-        m_TargetAssemblyTypeName: IndividualTaxButtons, Assembly-CSharp
-        m_MethodName: Dependent
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 0
 --- !u!1 &1050723621787161145
 GameObject:
@@ -838,7 +826,7 @@ GameObject:
   - component: {fileID: 354087563001998757}
   - component: {fileID: 6645014076595975810}
   - component: {fileID: 3113520893496069390}
-  - component: {fileID: 2759562375250808325}
+  - component: {fileID: 4541086379537301188}
   m_Layer: 0
   m_Name: DependentThreeButton
   m_TagString: Untagged
@@ -916,8 +904,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f4c027756354fb18c31f646463d4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 2759562375250808325}
---- !u!114 &2759562375250808325
+  button: {fileID: 0}
+--- !u!114 &4541086379537301188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -938,10 +926,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.39215687}
-    m_PressedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
-    m_SelectedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -957,25 +945,13 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2213547113007708605}
+  m_TargetGraphic: {fileID: 6645014076595975810}
   toggleTransition: 1
   graphic: {fileID: 0}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3113520893496069390}
-        m_TargetAssemblyTypeName: IndividualTaxButtons, Assembly-CSharp
-        m_MethodName: Dependent
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 0
 --- !u!1 &1744176429231602336
 GameObject:
@@ -1259,7 +1235,7 @@ GameObject:
   - component: {fileID: 3346791678649701703}
   - component: {fileID: 8661565278364236097}
   - component: {fileID: 6571982140005230925}
-  - component: {fileID: 16823231778337016}
+  - component: {fileID: 4833568099135538445}
   m_Layer: 0
   m_Name: SpouseNameButton
   m_TagString: Untagged
@@ -1308,7 +1284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1337,8 +1313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f4c027756354fb18c31f646463d4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 16823231778337016}
---- !u!114 &16823231778337016
+  button: {fileID: 4833568099135538445}
+--- !u!114 &4833568099135538445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1359,10 +1335,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.39215687}
-    m_PressedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
-    m_SelectedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1378,9 +1354,9 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2213547113007708605}
+  m_TargetGraphic: {fileID: 8661565278364236097}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 8661565278364236097}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
@@ -1410,7 +1386,7 @@ GameObject:
   - component: {fileID: 1168197897626164535}
   - component: {fileID: 4874634417813861290}
   - component: {fileID: 5926825264021197119}
-  - component: {fileID: 41680088313294042}
+  - component: {fileID: 474910590805138787}
   m_Layer: 0
   m_Name: Income1Button
   m_TagString: Untagged
@@ -1488,8 +1464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f4c027756354fb18c31f646463d4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 41680088313294042}
---- !u!114 &41680088313294042
+  button: {fileID: 0}
+--- !u!114 &474910590805138787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1510,10 +1486,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.39215687}
-    m_PressedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
-    m_SelectedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1529,25 +1505,13 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2213547113007708605}
+  m_TargetGraphic: {fileID: 4874634417813861290}
   toggleTransition: 1
   graphic: {fileID: 0}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5926825264021197119}
-        m_TargetAssemblyTypeName: IndividualTaxButtons, Assembly-CSharp
-        m_MethodName: Income
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 0
 --- !u!1 &2263211168997192563
 GameObject:
@@ -1966,7 +1930,7 @@ GameObject:
   - component: {fileID: 3014407827589292825}
   - component: {fileID: 5573928177275066195}
   - component: {fileID: 1740111203731301996}
-  - component: {fileID: 693270799834403014}
+  - component: {fileID: 6600537624833688014}
   m_Layer: 0
   m_Name: AddressButton
   m_TagString: Untagged
@@ -2044,8 +2008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f4c027756354fb18c31f646463d4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 693270799834403014}
---- !u!114 &693270799834403014
+  button: {fileID: 6600537624833688014}
+--- !u!114 &6600537624833688014
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2066,10 +2030,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.39215687}
-    m_PressedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
-    m_SelectedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2085,9 +2049,9 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2213547113007708605}
+  m_TargetGraphic: {fileID: 5573928177275066195}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 5573928177275066195}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
@@ -2252,7 +2216,7 @@ GameObject:
   - component: {fileID: 4412004500272297284}
   - component: {fileID: 2875315497117061316}
   - component: {fileID: 9121038447658329948}
-  - component: {fileID: 1487325505248869521}
+  - component: {fileID: 5567238612343785503}
   m_Layer: 0
   m_Name: DependentFourButton
   m_TagString: Untagged
@@ -2330,8 +2294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f4c027756354fb18c31f646463d4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 1487325505248869521}
---- !u!114 &1487325505248869521
+  button: {fileID: 0}
+--- !u!114 &5567238612343785503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2352,10 +2316,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.39215687}
-    m_PressedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
-    m_SelectedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2371,25 +2335,13 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2213547113007708605}
+  m_TargetGraphic: {fileID: 2875315497117061316}
   toggleTransition: 1
   graphic: {fileID: 0}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9121038447658329948}
-        m_TargetAssemblyTypeName: IndividualTaxButtons, Assembly-CSharp
-        m_MethodName: Dependent
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 0
 --- !u!1 &3051407908131027078
 GameObject:
@@ -4625,7 +4577,7 @@ GameObject:
   - component: {fileID: 7108115247208443528}
   - component: {fileID: 2702424383442664994}
   - component: {fileID: 1445480429038481090}
-  - component: {fileID: 1494491776013012603}
+  - component: {fileID: 2265545739559362092}
   m_Layer: 0
   m_Name: Income23Button
   m_TagString: Untagged
@@ -4703,8 +4655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f4c027756354fb18c31f646463d4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 1494491776013012603}
---- !u!114 &1494491776013012603
+  button: {fileID: 2265545739559362092}
+--- !u!114 &2265545739559362092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4725,10 +4677,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.39215687}
-    m_PressedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
-    m_SelectedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 1, g: 0.9372188, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4744,9 +4696,9 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2213547113007708605}
+  m_TargetGraphic: {fileID: 2702424383442664994}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 2702424383442664994}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
@@ -5419,7 +5371,7 @@ GameObject:
   - component: {fileID: 912192323433671164}
   - component: {fileID: 6310913929900099785}
   - component: {fileID: 7986391001047912521}
-  - component: {fileID: 8763562126532054310}
+  - component: {fileID: 2814936521664760994}
   m_Layer: 0
   m_Name: DependentOneButton
   m_TagString: Untagged
@@ -5497,8 +5449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f4c027756354fb18c31f646463d4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 8763562126532054310}
---- !u!114 &8763562126532054310
+  button: {fileID: 0}
+--- !u!114 &2814936521664760994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5519,10 +5471,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.39215687}
-    m_PressedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
-    m_SelectedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5538,25 +5490,13 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2213547113007708605}
+  m_TargetGraphic: {fileID: 6310913929900099785}
   toggleTransition: 1
   graphic: {fileID: 0}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7986391001047912521}
-        m_TargetAssemblyTypeName: IndividualTaxButtons, Assembly-CSharp
-        m_MethodName: Dependent
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 0
 --- !u!1 &7470638975539092269
 GameObject:
@@ -6112,7 +6052,7 @@ GameObject:
   - component: {fileID: 4699761333586980856}
   - component: {fileID: 1796436583904332745}
   - component: {fileID: 6618427360579653679}
-  - component: {fileID: 5002292830803082674}
+  - component: {fileID: 3707720326335489118}
   m_Layer: 0
   m_Name: FilingStatusButton
   m_TagString: Untagged
@@ -6190,8 +6130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f4c027756354fb18c31f646463d4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 5002292830803082674}
---- !u!114 &5002292830803082674
+  button: {fileID: 3707720326335489118}
+--- !u!114 &3707720326335489118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6212,10 +6152,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.39215687}
-    m_PressedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
-    m_SelectedColor: {r: 1, g: 0.9529412, b: 0, a: 0.34901962}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6231,20 +6171,20 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2213547113007708605}
+  m_TargetGraphic: {fileID: 1796436583904332745}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 1796436583904332745}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6618427360579653679}
         m_TargetAssemblyTypeName: IndividualTaxButtons, Assembly-CSharp
-        m_MethodName: FilingStatus
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6355,7 +6295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -6384,7 +6324,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 2213547113007708605}
   toggleTransition: 1
-  graphic: {fileID: 0}
+  graphic: {fileID: 2213547113007708605}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
