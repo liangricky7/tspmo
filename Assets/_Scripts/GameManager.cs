@@ -12,12 +12,16 @@ public class GameManager : MonoBehaviour
     public bool inHighlightMode;
     public Transform form1040Spawn;
     public HashSet<string> claimedErrors;
+    public GameObject shredder;
 
     void Awake()
     {
-        if (instance != null && instance != this) {
+        if (instance != null && instance != this)
+        {
             Destroy(this);
-        } else {
+        }
+        else
+        {
             instance = this;
         }
 
@@ -33,17 +37,21 @@ public class GameManager : MonoBehaviour
     }
 
     public void EndFileSet()
-    {  
-        if (claimedErrors.SetEquals(FileSet.instance.form1040Errors)) {
+    {
+        if (claimedErrors.SetEquals(FileSet.instance.form1040Errors))
+        {
             //idk somethign good
             Debug.Log("good");
-        } else {
+        }
+        else
+        {
             Debug.Log("bad");
         }
         FileSet.instance.newFileSet();
         current1040 = FileSet.instance.form1040Obj;
         currentW2 = FileSet.instance.formW2Obj;
         Debug.Log($"HashSet Contents: {string.Join(", ", FileSet.instance.form1040Errors)}");
+        shredder.GetComponent<ObjectShake>().TriggerShake();
     }
 
     void win()
