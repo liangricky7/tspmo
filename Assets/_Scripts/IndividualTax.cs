@@ -18,6 +18,7 @@ public class Dependent {
 
 public class IndividualTax : MonoBehaviour
 {
+    #region data
     #nullable enable
     [Header("Data")]
     public string fullName;
@@ -27,7 +28,6 @@ public class IndividualTax : MonoBehaviour
     public string address;
     public string city;
     public string state;
-    public string zip;
     public string filingStatus;
     public string? deductionClaim;
     public string? deductionAge;
@@ -39,10 +39,11 @@ public class IndividualTax : MonoBehaviour
     public int summedIncome;
     public int deductions;
     public int taxableIncome;
+    #endregion
 
+    #region text connections
     [Space(10)]
     [Header("Text Connections")]
-
     public TextMeshProUGUI fullNameHolder;
     public TextMeshProUGUI SSNHolder;
     public TextMeshProUGUI fullSpouseNameHolder;
@@ -50,7 +51,6 @@ public class IndividualTax : MonoBehaviour
     public TextMeshProUGUI addressHolder;
     public TextMeshProUGUI cityHolder;
     public TextMeshProUGUI stateHolder;
-    public TextMeshProUGUI zipHolder;
     public TextMeshProUGUI[] filingStatusTickers;
     public TextMeshProUGUI[] deductionClaimTickers;
     public TextMeshProUGUI[] deductionAgeTickers;
@@ -64,6 +64,7 @@ public class IndividualTax : MonoBehaviour
     public TextMeshProUGUI SummedIncomeHolder;
     public TextMeshProUGUI DeductionHolder;
     public TextMeshProUGUI TaxableIncomeHolder;
+    #endregion
 
     void Start()
     {
@@ -74,7 +75,6 @@ public class IndividualTax : MonoBehaviour
         addressHolder.text = address;
         cityHolder.text = city;
         stateHolder.text = state;
-        zipHolder.text = zip;
 
         // filing status
         if (filingStatus.Equals("Single")) {

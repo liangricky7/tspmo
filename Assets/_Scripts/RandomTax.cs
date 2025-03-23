@@ -116,7 +116,7 @@ public class RandomTax : MonoBehaviour
         GenerateW2();
     }
 
-    void Randomize1040() {
+    void Generate1040() {
         var rand = new Random();
         GameObject form1040Obj = Instantiate(form1040Prefab, new Vector3(0, 0, 0), Quaternion.identity);
         IndividualTax formContents = form1040Obj.GetComponent<IndividualTax>();

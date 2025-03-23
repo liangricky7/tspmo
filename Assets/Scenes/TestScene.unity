@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 183242759}
   - component: {fileID: 183242762}
   - component: {fileID: 183242761}
+  - component: {fileID: 183242763}
   m_Layer: 0
   m_Name: ~~FormGenerator~~
   m_TagString: Untagged
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183242758}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9649e168d17294a03842bc3e9e727e93, type: 3}
   m_Name: 
@@ -194,6 +195,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29b03d617c064f77af1481e05f9a736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &183242763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183242758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d1bbde312174c5db91e0b1fb61e71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  form1040Prefab: {fileID: 7202651822455385323, guid: 9e562c0dc48b047168fff5aef8184509, type: 3}
+  formW2Prefab: {fileID: 7202651822455385323, guid: e521b948c826b4abda7a7501836c8e8d, type: 3}
 --- !u!1 &277083182
 GameObject:
   m_ObjectHideFlags: 0
