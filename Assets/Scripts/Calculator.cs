@@ -28,11 +28,19 @@ public class Calculator : MonoBehaviour
         }
         else if(buttonValue == "CH. DEP")
         {
-            //calc child dependency
+
+            result = System.Convert.ToDouble(currentInput) * 3000;
+            currentInput = result.ToString();
+            UpdateDisplay();
+
         }
         else if (buttonValue == "AD. DEP")
         {
-            //calc adult dependency
+
+            result = System.Convert.ToDouble(currentInput) * 1000;
+            currentInput = result.ToString();
+            UpdateDisplay();
+
         }
         else
         {
