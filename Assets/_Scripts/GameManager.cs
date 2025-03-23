@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         currentW2 = FileSet.instance.formW2Obj;
         Debug.Log($"HashSet Contents: {string.Join(", ", FileSet.instance.formW2Errors)}");
     }
+
     public void EndFileSet()
     {  
         if (claimedErrors.SetEquals(FileSet.instance.form1040Errors)) {
@@ -40,5 +41,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("bad");
         }
         FileSet.instance.newFileSet();
+        current1040 = FileSet.instance.form1040Obj;
+        currentW2 = FileSet.instance.formW2Obj;
     }
 }

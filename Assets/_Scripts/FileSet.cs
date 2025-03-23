@@ -127,8 +127,8 @@ public class FileSet : MonoBehaviour
 
     public void newFileSet()
     {
-        Destroy(form1040Obj);
-        Destroy(formW2Obj);
+        Destroy(form1040Obj, 0.22f);
+        Destroy(formW2Obj, 0.22f);
         System.Random rand = new System.Random();
         hasSpouse = false;
         filingJointly = false;
@@ -217,7 +217,7 @@ public class FileSet : MonoBehaviour
 
     void Generate1040() {
         System.Random rand = new System.Random();
-        GameObject form1040Obj = Instantiate(form1040Prefab, new Vector3(0, 0, 0), Quaternion.identity);
+        form1040Obj = Instantiate(form1040Prefab, new Vector3(0, 0, 0), Quaternion.identity);
         form1040 = form1040Obj.GetComponent<IndividualTax>();
         // true data
         form1040.fullName = selfIdentity.name;
