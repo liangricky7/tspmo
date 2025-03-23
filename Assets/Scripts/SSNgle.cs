@@ -1,29 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SSNgle : MonoBehaviour
 {
     public GameObject searchBar;
+    public Button searchToggle;
     private bool toggle;
+    public string search;
 
     void Start()
     {
-        Debug.Log(searchBar.name);
         toggle = false;
         searchBar.SetActive(toggle);
     }
 
-    void OnMouseDown()
-    {
-        DisplaySSNgle();
-        Debug.Log(toggle);
-    }
-
     public void DisplaySSNgle()
     {
-        searchBar.SetActive(toggle);
         toggle = !toggle;
+        searchBar.SetActive(toggle);
+    }
+
+    public void getInput(string s) {
+        search = s;
+        Debug.Log(search);
     }
 
 }
