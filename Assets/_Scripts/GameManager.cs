@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Transform form1040Spawn;
     public HashSet<string> claimedErrors;
     public GameObject shredder;
+    int count = 0;
 
     void Awake()
     {
@@ -41,11 +42,12 @@ public class GameManager : MonoBehaviour
         if (claimedErrors.SetEquals(FileSet.instance.form1040Errors))
         {
             //idk somethign good
-            Debug.Log("good");
+            win();
         }
         else
         {
-            Debug.Log("bad");
+            if (count == 3) lose();
+            count++;
         }
         FileSet.instance.newFileSet();
         current1040 = FileSet.instance.form1040Obj;
@@ -63,7 +65,6 @@ public class GameManager : MonoBehaviour
 
     void lose()
     {
-
         SceneManager.LoadSceneAsync("GameOver");
 
     }
