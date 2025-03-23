@@ -28,11 +28,10 @@ public class IndividualTax : MonoBehaviour
     public string address;
     public string city;
     public string state;
-    public string SSN;
     public string filingStatus;
     public string? deductionClaim;
     public string? deductionAge;
-    public Dependent[] dependents;
+    public Dependent[] dependents = new Dependent[4];
     public int totalW2;
     public int household;
     public int tipIncome;
@@ -52,12 +51,12 @@ public class IndividualTax : MonoBehaviour
     public TextMeshProUGUI addressHolder;
     public TextMeshProUGUI cityHolder;
     public TextMeshProUGUI stateHolder;
-    public TextMeshProUGUI[] filingStatusTickers;
+    public TextMeshProUGUI[] filingStatusTickers = new TextMeshProUGUI[4];
     public TextMeshProUGUI[] deductionClaimTickers;
-    public TextMeshProUGUI[] deductionAgeTickers;
-    public TextMeshProUGUI[] dependentNameHolders;
-    public TextMeshProUGUI[] dependentSSNHolders;
-    public TextMeshProUGUI[] dependentChildTaxTickers;
+    public TextMeshProUGUI[] deductionAgeTickers = new TextMeshProUGUI[4];
+    public TextMeshProUGUI[] dependentNameHolders = new TextMeshProUGUI[4];
+    public TextMeshProUGUI[] dependentSSNHolders = new TextMeshProUGUI[4];
+    public TextMeshProUGUI[] dependentChildTaxTickers = new TextMeshProUGUI[4];
     public TextMeshProUGUI W2Holder;
     public TextMeshProUGUI HouseholdHolder;
     public TextMeshProUGUI TipIncomeHolder;
@@ -105,9 +104,9 @@ public class IndividualTax : MonoBehaviour
         // dependents
         int i = 0;
         foreach (Dependent dependent in dependents) {
-            dependentNameHolders[i].text = dependent.name;
-            dependentSSNHolders[i].text = dependent.ssn;
-            dependentChildTaxTickers[i].enabled = dependent.childTax;
+            dependentNameHolders[i].text = dependent != null ? dependent.name : "";
+            dependentSSNHolders[i].text = dependent != null ? dependent.ssn : "";
+            dependentChildTaxTickers[i].enabled = dependent != null ? dependent.childTax : false ;
             i++;
         }
 

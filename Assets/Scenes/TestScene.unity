@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 183242762}
   - component: {fileID: 183242761}
   - component: {fileID: 183242763}
+  - component: {fileID: 183242764}
   m_Layer: 0
   m_Name: ~~FormGenerator~~
   m_TagString: Untagged
@@ -209,6 +210,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   form1040Prefab: {fileID: 7202651822455385323, guid: 9e562c0dc48b047168fff5aef8184509, type: 3}
   formW2Prefab: {fileID: 7202651822455385323, guid: e521b948c826b4abda7a7501836c8e8d, type: 3}
+--- !u!114 &183242764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183242758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd31cf5416dd4fc588169202bfc1f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adultSetSize: 40
+  childSetSize: 20
 --- !u!1 &277083182
 GameObject:
   m_ObjectHideFlags: 0
