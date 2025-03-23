@@ -109,6 +109,17 @@ public class RandomTax : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Randomization();
+        GenerateW2();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    
+    public static string[] Randomization() {
         var rand = new Random(Guid.NewGuid().GetHashCode());
         name = (firstName[rand.Next(firstName.Length)]) + " " + (lastName[rand.Next(lastName.Length)]);
         age = rand.Next(18, 76);
@@ -130,22 +141,8 @@ public class RandomTax : MonoBehaviour
         withheldMedicare = rand.Next(0, wages/10);
         net = wages - tax - withheldSocialSecurity - withheldMedicare;
 
-        GenerateW2();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
-    void Randomization() {
-        var rand = new Random();
-        string infoOutput = (name + " is a " + age + " year old with the social security number " + socialSecurity + ". \n" 
-                            + "They work at " + address +" and their employer has a social security number of " + workSocialSecurity + ". \n"
-                            + "They've made $" + wages.ToString("N0") + " and owe $" + tax.ToString("N0") + " in taxes, along with $" + withheldSocialSecurity.ToString("N0") + " and $" + withheldMedicare.ToString("N0") + " in withheld social security/medicare. \n"
-                            + "Their net should be $" + net.ToString("N0") + ".").ToString();
-        Debug.Log(infoOutput);
+        string[] dataSet = {name, age.ToString(), address, socialSecurity, workSocialSecurity, address, married.ToString(), wages.ToString(), tax.ToString(), withheldSocialSecurity.ToString(), withheldMedicare.ToString(), net.ToString()};
+        return dataSet;
     }
 
     void Randomize1040() {
@@ -157,8 +154,9 @@ public class RandomTax : MonoBehaviour
         formContents.address = address;
         formContents.state = stateAbbreviations[rand.Next(stateAbbreviations.Length)];
         formContents.city = stateCities[formContents.state][rand.Next(stateCities[formContents.state].Length)];
+        formContents.SSN = socialSecurity;
 
-        InformationManager.instance.setTrue1040(formContents.firstName, formContents.lastName, formContents.address, formContents.state, formContents.city, "the", new string[]{"the"});
+        InformationManager.instance.setTrue1040(formContents.firstName, formContents.lastName, formContents.address, formContents.city, formContents.state, formContents.SSN, "the", new string[]{"the"});
     }
 
     void GenerateW2() {
