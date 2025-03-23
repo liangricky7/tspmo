@@ -43,10 +43,10 @@ public class W2 : MonoBehaviour
         employerNameHolder.text = fullEmployerName;
         employerSSNHolder.text = employerSSN;
         employerAddressHolder.text = employerAddress;
-        wageHolder.text = wages.ToString();
-        fedTaxHolder.text = fedTax.ToString();
-        socSecHolder.text = socialSecurity.ToString();
-        withheldMedicareHolder.text = withheldMedicare.ToString();
-        netWageHolder.text = netWages.ToString();
+        wageHolder.text = wages.ToString("N0");
+        fedTaxHolder.text = fedTax.ToString("N0");
+        socSecHolder.text = socialSecurity.ToString("N0");
+        withheldMedicareHolder.text = withheldMedicare.ToString("N0");
+        netWageHolder.text = netWages.ToString("N0");
     }
 }

@@ -28,6 +28,7 @@ public class IndividualTax : MonoBehaviour
     public string address;
     public string city;
     public string state;
+    public string SSN;
     public string filingStatus;
     public string? deductionClaim;
     public string? deductionAge;
